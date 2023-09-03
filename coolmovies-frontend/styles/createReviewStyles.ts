@@ -22,3 +22,5 @@ export const createReviewStyles = {
 		color: "#5823f5",
 	}),
 };
+
+export default createReviewStyles;

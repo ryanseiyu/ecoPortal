@@ -1,21 +1,12 @@
-import {
-	Button,
-	Card,
-	Fade,
-	Modal,
-	Paper,
-	TextField,
-	Typography,
-} from "@mui/material";
-import { styles } from "./styles";
-import { homeStyles } from "./homeStyles";
+import { gql, useMutation } from "@apollo/client";
+import { Button, Paper, Typography } from "@mui/material";
 import type { NextPage } from "next";
-import { exampleActions, useAppDispatch, useAppSelector } from "../redux";
 import Image from "next/image";
-import { gql } from "@apollo/client";
-import { useMutation } from "@apollo/client";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
-import logo from "./assets/logo.svg";
+import { exampleActions, useAppDispatch, useAppSelector } from "../redux";
+import { homeStyles } from "../styles/homeStyles";
+import { styles } from "../styles/styles";
 import imgCard from "./assets/imgCard.jpg";
 import imgCard2 from "./assets/imgCard2.jpg";
 import imgCard3 from "./assets/imgCard3.jpg";
@@ -24,8 +15,8 @@ import imgCard5 from "./assets/imgCard5.jpg";
 import imgCard6 from "./assets/imgCard6.jpg";
 import imgCard7 from "./assets/imgCard7.jpg";
 import imgCard8 from "./assets/imgCard8.jpg";
+import logo from "./assets/logo.svg";
 import star from "./assets/star.svg";
-import { useRouter } from "next/router";
 
 export const UPDATE_REVIEW = gql`
 	mutation UpdateReview($input: UpdateMovieReviewInput!) {
@@ -245,100 +236,6 @@ const Home: NextPage = () => {
 						</div>
 					</div>
 				</div>
-
-				{/* <div css={styles.allCards}>
-					{movies.map((movie: Movie) => (
-						<Card key={movie.id} css={styles.cards} variant="outlined">
-							<div css={styles.movieTitleBox}>
-								<Typography css={styles.movieTitle} variant={"h6"}>
-									{movie.title}
-								</Typography>
-								<Image
-									src={movie.imgUrl}
-									alt="Movie Poster"
-									width={200}
-									height={300}
-								/>
-								<Button
-									onClick={() =>
-										dispatch(exampleActions.openModalCreate(movie.id))
-									}
-								>
-									Create Review
-								</Button>
-							</div>
-							<div css={styles.allReviews}>
-								{movie.movieReviewsByMovieId.nodes.map((review) => (
-									<div key={review.id} css={styles.reviews}>
-										<Typography variant={"subtitle1"} css={styles.titles}>
-											{review.title}
-										</Typography>
-										<Typography variant={"body2"}>{review.body}</Typography>
-										<Typography
-											variant={"body2"}
-										>{`Rating: ${review.rating}`}</Typography>
-										<Button
-											onClick={() =>
-												dispatch(exampleActions.setIsOpen(review.nodeId))
-											}
-										>
-											Edit Review
-										</Button>
-									</div>
-								))}
-							</div>
-						</Card>
-					))}
-				</div>
-
-				<Modal
-					open={exampleState.isOpen}
-					onClose={() => dispatch(exampleActions.handleClose())}
-					closeAfterTransition
-				>
-					<Fade in={exampleState.isOpen}>
-						<Box css={styles.box}>
-							<form onSubmit={handleSubmit}>
-								<TextField
-									label="Title"
-									value={exampleState.title}
-									onChange={(e) =>
-										dispatch(exampleActions.setTitle(e.target.value))
-									}
-									required
-									css={styles.textField}
-								/>
-								<TextField
-									label="Body"
-									value={exampleState.body}
-									onChange={(e) =>
-										dispatch(exampleActions.setBody(e.target.value))
-									}
-									required
-									multiline
-									rows={5}
-									css={styles.textArea}
-								/>
-								<TextField
-									label="Rating"
-									type="number"
-									value={exampleState.rating}
-									onChange={(e) =>
-										dispatch(
-											exampleActions.setRating(parseInt(e.target.value, 10))
-										)
-									}
-									required
-									css={styles.textField}
-									inputProps={{ min: 0, max: 5 }}
-								/>
-								<Button type="submit">Submit</Button>
-							</form>
-						</Box>
-					</Fade>
-				</Modal>
-
-				<CreateReviewModal /> */}
 			</div>
 			<footer css={homeStyles.footer}>
 				<p>All Rights Reserved | Copyright © 2023</p>

@@ -1,12 +1,11 @@
-import "../styles/globals.css";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { EnhancedStore } from "@reduxjs/toolkit";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import React, { FC, useMemo, useState } from "react";
 import { Provider as ReduxProvider } from "react-redux";
-import Head from "next/head";
 import { createStore } from "../redux";
-import { EnhancedStore } from "@reduxjs/toolkit";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { NextComponentType, NextPageContext } from "next";
+import "../styles/globals.css";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
 	const [store, setStore] = useState<EnhancedStore | null>(null);

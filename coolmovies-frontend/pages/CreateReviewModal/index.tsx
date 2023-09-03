@@ -1,13 +1,12 @@
-import { Button, Fade, Modal, TextField, Typography } from "@mui/material";
-import { styles } from "../styles";
-import { createReviewStyles } from "./createReviewStyles";
+import { Button, Fade, Modal, TextField } from "@mui/material";
 import type { NextPage } from "next";
 import { exampleActions, useAppDispatch, useAppSelector } from "../../redux";
+import { createReviewStyles } from "../../styles/createReviewStyles";
+import { styles } from "../../styles/styles";
 
-import { FormEvent, useEffect } from "react";
+import { gql, useMutation } from "@apollo/client";
 import Box from "@mui/material/Box";
-import { gql } from "@apollo/client";
-import { useMutation } from "@apollo/client";
+import { useEffect } from "react";
 
 const CREATE_REVIEW = gql`
 	mutation CreateMovieReview($input: CreateMovieReviewInput!) {
@@ -21,7 +20,6 @@ const CREATE_REVIEW = gql`
 		}
 	}
 `;
-
 const CreateReviewModal: NextPage = () => {
 	const dispatch = useAppDispatch();
 	useEffect(() => {

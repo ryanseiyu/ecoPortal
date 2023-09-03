@@ -1,9 +1,4 @@
-import React, { useEffect } from "react";
-import { exampleActions, useAppDispatch, useAppSelector } from "../../redux";
 import { useMutation } from "@apollo/client";
-import { UPDATE_REVIEW } from "..";
-import { Movie } from "../../redux/slices/example/slice";
-import { styles } from "../styles";
 import {
 	Box,
 	Button,
@@ -15,12 +10,17 @@ import {
 	Typography,
 } from "@mui/material";
 import Image from "next/image";
-import CreateReviewModal from "../CreateReviewModal";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { UPDATE_REVIEW } from "..";
 import edit from "../../public/edit.svg";
-import { reviewStyles } from "./reviewStyles";
+import { exampleActions, useAppDispatch, useAppSelector } from "../../redux";
+import { Movie } from "../../redux/slices/example/slice";
+import { reviewStyles } from "../../styles/reviewStyles";
+import { styles } from "../../styles/styles";
+import CreateReviewModal from "../CreateReviewModal";
 import logo from "../assets/logo.svg";
 import star from "../assets/star.svg";
-import { useRouter } from "next/router";
 
 function Reviews() {
 	const dispatch = useAppDispatch();

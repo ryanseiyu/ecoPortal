@@ -51,7 +51,6 @@ export const reviewStyles = {
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-		justifyContent: "space-evenly",
 		width: "100%",
 		height: "100%",
 		flexWrap: "wrap",
@@ -295,3 +294,5 @@ export const reviewStyles = {
 		height: "auto",
 	}),
 };
+
+export default reviewStyles;

@@ -98,10 +98,19 @@ export const styles = {
 		marginLeft: "5vw",
 		marginBottom: 16,
 	}),
-	mainControls: css({
-		display: "flex",
-		alignItems: "center",
-		button: { marginRight: 16 },
+
+	submitButton: css({
+		color: "#5823F5",
+	}),
+
+	textField: css({
+		width: "100%",
+		marginBottom: 16,
+	}),
+
+	textArea: css({
+		width: "100%",
+		marginBottom: 16,
 	}),
 
 	box: css({
@@ -121,37 +130,6 @@ export const styles = {
 		right: 0,
 		padding: 16,
 	}),
-	textField: css({
-		width: "100%",
-		marginBottom: 16,
-	}),
-	textArea: css({
-		width: "100%",
-		marginBottom: 16,
-	}),
-	allReviews: css({
-		display: "flex",
-		flexDirection: "column",
-		// flexWrap: "wrap",
-		justifyContent: "center",
-	}),
-	movieTitleBox: css({
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
-		justifyContent: "space-evenly",
-		position: "relative",
-		button: {
-			position: "absolute",
-			bottom: -40,
-			width: "100%",
-			marginBottom: 16,
-		},
-	}),
-	titles: css({
-		marginBottom: 16,
-	}),
-	submitButton: css({
-		color: "#5823F5",
-	}),
 };
+
+export default styles;
